@@ -14,6 +14,7 @@ enable secret 5 $1$mERr$ZAtW/QHMCgX/9yhn/j9eM0
 !
 !
 !
+ip domain-name mydomain.com
 !
 !
 !
@@ -120,6 +121,7 @@ enable secret 5 $1$mERr$ZAtW/QHMCgX/9yhn/j9eM0
 !
 !
 !
+ip domain-name mydomain2.com
 !
 !
 !
