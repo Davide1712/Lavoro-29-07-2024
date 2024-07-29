@@ -1,0 +1,55 @@
+Switch>enable
+Switch#configure terminal 
+Enter configuration commands, one per line. End with CNTL/Z.
+Switch(config)#hostname Sw1
+Sw1(config)#enable secret eve
+Sw1(config)#line console 0
+Sw1(config-line)#password eve
+Sw1(config-line)#login
+Sw1(config-line)#logging synchronous 
+Sw1(config-line)#exit
+Sw1(config)#line vty 0 15
+Sw1(config-line)#password eve
+Sw1(config-line)#login
+Sw1(config-line)#transport input ssh
+Sw1(config-line)#exit
+Sw1(config)#service password-encryption 
+Sw1(config)#vlan 10
+Sw1(config-vlan)#name DatiAmministrativi
+Sw1(config-vlan)#exit
+Sw1(config)#interface fastEthernet 0/2
+Sw1(config-if)#switchport mode access 
+Sw1(config-if)#switchport access vlan 10
+Sw1(config-if)#exit
+
+----------------------------------------------------------------------------------------
+
+Switch>enable
+Switch#configure terminal 
+Enter configuration commands, one per line. End with CNTL/Z.
+Switch(config)#hostname Sw2
+Sw2(config)#enable secret eve
+Sw2(config)#line console 0
+Sw2(config-line)#password eve
+Sw2(config-line)#login
+Sw2(config-line)#logging synchronous
+Sw2(config-line)#exit
+Sw2(config)#line vty 0 15
+Sw2(config-line)#password eve
+Sw2(config-line)#login
+Sw2(config-line)#transport input ssh
+Sw2(config-line)#exit
+Sw2(config)#service password-encryption 
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/2 (1), with Sw1 FastEthernet0/2 (10).
+
+Sw2(config)#vlan 20
+Sw2(config-vlan)#name DatiFormali
+Sw2(config-vlan)#exit
+Sw2(config)#interface fastEthernet 0/2
+Sw2(config-if)#
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/2 (1), with Sw1 FastEthernet0/2 (10).
+
+Sw2(config-if)#switchport mode access
+Sw2(config-if)#switchport access vlan 20
+Sw2(config-if)#exit
+Sw2(config)#
