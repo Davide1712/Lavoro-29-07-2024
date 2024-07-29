@@ -24,6 +24,23 @@ Sw1(config-if)#exit
 Sw1(config)#interface fastEthernet 0/1
 Sw1(config-if)#switchport mode access 
 Sw1(config-if)#switchport access vlan 10
+Sw1(config)#ip domain-name mydomain.com
+Sw1(config)#crypto key generate rsa
+The name for the keys will be: Sw1.mydomain.com
+Choose the size of the key modulus in the range of 360 to 4096 for your
+  General Purpose Keys. Choosing a key modulus greater than 512 may take
+  a few minutes.
+
+How many bits in the modulus [512]: 
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/2 (10), with Sw2 FastEthernet0/2 (20).
+
+The name for the keys will be: Sw1.mydomain.com
+Choose the size of the key modulus in the range of 360 to 4096 for your
+  General Purpose Keys. Choosing a key modulus greater than 512 may take
+  a few minutes.
+
+How many bits in the modulus [512]: 1024
+% Generating 1024 bit RSA keys, keys will be non-exportable...[OK]
 
 ----------------------------------------------------------------------------------------
 
@@ -55,3 +72,20 @@ Sw2(config-if)#exit
 Sw2(config)#interface fastEthernet 0/1
 Sw2(config-if)#switchport mode access
 Sw2(config-if)#switchport access vlan 20
+Sw1(config)#ip domain-name mydomain2.com
+Sw1(config)#crypto key generate rsa
+The name for the keys will be: Sw2.mydomain2.com
+Choose the size of the key modulus in the range of 360 to 4096 for your
+  General Purpose Keys. Choosing a key modulus greater than 512 may take
+  a few minutes.
+
+How many bits in the modulus [512]: 
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/2 (10), with Sw2 FastEthernet0/2 (20).
+
+The name for the keys will be: Sw1.mydomain.com
+Choose the size of the key modulus in the range of 360 to 4096 for your
+  General Purpose Keys. Choosing a key modulus greater than 512 may take
+  a few minutes.
+
+How many bits in the modulus [512]: 1024
+% Generating 1024 bit RSA keys, keys will be non-exportable...[OK]
